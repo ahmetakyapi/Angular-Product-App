@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login/login.component';
-import { ProductListComponent } from './productList/product-list/product-list.component';
-import { ShoppingCartComponent } from './shoppingCart/shopping-cart/shopping-cart.component';
+import { LoginComponent } from './login/login.component';
+import { BasketComponent } from './basket/basket.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProductListComponent,
-    ShoppingCartComponent
+    BasketComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
