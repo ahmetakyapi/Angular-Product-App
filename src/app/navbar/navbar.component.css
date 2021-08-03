@@ -1,0 +1,58 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: whitesmoke;
+}
+
+.logo {
+  padding: 1rem 0;
+}
+
+.logo a {
+  padding: 30px;
+  color: #7b7fda;
+  font-weight: 900;
+  font-size: 1.7rem;
+  font-family: Tahoma, sans-serif;
+  text-decoration: none;
+}
+
+.logo span {
+  font-weight: 600;
+  font-size: 1.3rem;
+  padding-left: 0.3rem;
+  color: darkgoldenrod;
+  text-decoration: none;
+}
+
+.logo a:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.4s ease-in;
+}
+
+.sub-menu {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 12px;
+}
+
+.sub-menu a {
+  margin-right: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: darkgoldenrod;
+  font-weight: 800;
+}
+
+.sub-menu a:hover {
+  color: darkslateblue;
+  opacity: 0.8;
+  transition: all 0.2s ease-in;
+  text-decoration: none;
+}
