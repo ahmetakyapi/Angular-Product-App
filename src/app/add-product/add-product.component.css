@@ -1,6 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  height: 100vh;
+}
+
 .add-product-container {
+  margin-top: 10px;
   width: 50%;
-  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
 }
