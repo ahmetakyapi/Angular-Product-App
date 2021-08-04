@@ -7,6 +7,8 @@
 
       <label for="p-name">Ürün Adı</label>
       <input
+        [(ngModel)]="newProducts"
+        value=""
         type="text"
         id="pname"
         name="product-name"
@@ -44,7 +46,15 @@
         style="height: 80px"
       ></textarea>
 
-      <input type="submit" value="Kaydet" />
+      <input type="submit" value="Kaydet" (click)="addProducts()" />
+
+      <div *ngFor="let product of products; let index = index">
+        <div>
+          <div>{{ product }}</div>
+
+          <input (click)="deleteProducts(index)" type="button" value="Delete" />
+        </div>
+      </div>
     </form>
   </div>
 </body>

@@ -8,6 +8,7 @@ import { BasketComponent } from './basket/basket.component'
 import { ProductComponent } from './product/product.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { AddProductComponent } from './add-product/add-product.component'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AddProductComponent } from './add-product/add-product.component'
     NavbarComponent,
     AddProductComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
