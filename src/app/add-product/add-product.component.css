@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-
   height: 100vh;
 }
 
@@ -35,12 +34,17 @@ textarea {
   border: 2px solid darkblue;
   border-radius: 12px;
   box-sizing: border-box;
+  resize: vertical;
   margin-top: 6px;
   margin-bottom: 16px;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
+}
+
+textarea {
+  max-height: 150px;
 }
 
 input[type='submit'] {
