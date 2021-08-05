@@ -11,23 +11,40 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {}
   public products = []
 
-  public newProducts: any
+  public productName: any
+  public productCategory: any
+  public productStock: any
+  public productDesc: any
 
-  /* Input değerininin eklenmesi, en az 4 karakterden oluşması ve içi boş ise ekleme yapmasın. */
+  /* Input değerininin eklenmesi ve içi boş ise ekleme yapmasın. */
   public addProducts() {
     if (
-      this.newProducts == ' ' ||
-      this.newProducts.length <= 3 ||
-      this.newProducts.trim().length === 0
+      (this.productName == ' ',
+      this.productName.trim().length === 0 || this.productCategory == ' ',
+      this.productCategory.trim().length === 0 || this.productStock == ' ',
+      this.productStock.trim().length === 0 || this.productDesc == ' ',
+      this.productDesc.trim().length === 0)
     ) {
     } else {
-      this.products.push(this.newProducts as never)
-      this.newProducts = ''
+      ;[
+        this.products.push(this.productName as never) || this.productName == '',
+        this.products.push(this.productCategory as never) ||
+          this.productCategory == '',
+        this.products.push(this.productStock as never) ||
+          this.productStock == '',
+        this.products.push(this.productDesc as never) || this.productDesc == ''
+      ]
     }
   }
 
-  /* Silinmesi gereken todo için */
-  public deleteProducts(index: any) {
-    this.products.splice(index, 1)
+  /* Silinmesi gereken ürün için */
+  public deleteProducts() {
+    this.products.splice(
+      this.productName ||
+        this.productCategory ||
+        this.productStock ||
+        this.productDesc,
+      4
+    )
   }
 }
