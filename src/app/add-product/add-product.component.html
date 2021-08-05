@@ -7,7 +7,7 @@
 
       <label for="p-name">Ürün Adı</label>
       <input
-        [(ngModel)]="newProducts"
+        [(ngModel)]="productName"
         value=""
         type="text"
         id="pname"
@@ -15,17 +15,27 @@
         placeholder="Ürün Adını Giriniz..."
       />
       <label for="p-category">Ürün Kategorisi</label>
-      <select id="p-category" name="product-category">
-        <option value="electronic">Elektronik</option>
-        <option value="clothes">Kıyafet</option>
-        <option value="phone">Telefon</option>
-        <option value="shoes">Ayakabı</option>
-        <option value="computer">Bilgisayar</option>
-        <option value="Food">Yemek</option>
+      <select
+        id="p-category"
+        name="product-category"
+        [(ngModel)]="productCategory"
+        value=""
+      >
+        <option>Elektronik</option>
+        <option>Kıyafet</option>
+        <option>Telefon</option>
+        <option>Ayakabı</option>
+        <option>Bilgisayar</option>
+        <option>Yemek</option>
       </select>
 
       <label for="p-stock">Ürün Adet Sayısı</label>
-      <select id="pstock" name="product-stok">
+      <select
+        id="pstock"
+        name="product-stok"
+        [(ngModel)]="productStock"
+        value=""
+      >
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -33,9 +43,9 @@
         <option value="5">5</option>
         <option value="6">6</option>
         <option value="7">7</option>
-        <option value="7">8</option>
-        <option value="7">9</option>
-        <option value="7">10</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
       </select>
 
       <label for="p-details">Ürün Detayı</label>
@@ -44,16 +54,28 @@
         name="product-details"
         placeholder="Ürün detayı giriniz..."
         style="height: 80px"
+        [(ngModel)]="productDesc"
+        value=""
       ></textarea>
+      <div class="list-products">
+        <input type="submit" value="Kaydet" (click)="addProducts()" />
 
-      <input type="submit" value="Kaydet" (click)="addProducts()" />
-
-      <div *ngFor="let product of products; let index = index">
-        <div>
-          <div>{{ product }}</div>
-
-          <input (click)="deleteProducts(index)" type="button" value="Delete" />
+        <div *ngFor="let product of products">
+          <div>
+            <div>{{ product }}</div>
+          </div>
         </div>
+        <input
+          (click)="deleteProducts()"
+          type="button"
+          value="Sil"
+          [hidden]="
+            productName == null ||
+            productCategory == null ||
+            productStock == null ||
+            productDesc == null
+          "
+        />
       </div>
     </form>
   </div>
