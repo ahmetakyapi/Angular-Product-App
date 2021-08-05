@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { LoginComponent } from './login/login.component'
 import { BasketComponent } from './basket/basket.component'
-import { ProductComponent } from './product/product.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { AddProductComponent } from './add-product/add-product.component'
 import { FormsModule } from '@angular/forms'
@@ -15,7 +14,6 @@ import { FormsModule } from '@angular/forms'
     AppComponent,
     LoginComponent,
     BasketComponent,
-    ProductComponent,
     NavbarComponent,
     AddProductComponent
   ],
