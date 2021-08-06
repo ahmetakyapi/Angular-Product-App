@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -9,78 +10,54 @@ export class AddProductComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  public products = []
 
-  public productName: any
-  public productCategory: any
-  public productStock: any
-  public productDesc: any
-  public pName = []
-  public pCategory = []
-  public pStock = []
-  public pDesc = []
-  public testProduct = ['']
-
-  /* Input değerininin eklenmesi ve içi boş ise ekleme yapmasın. */
-  public addProducts() {
-    this.products = []
-    if (
-      (this.productName == ' ',
-      this.productName.trim().length === 0 || this.productCategory == ' ',
-      this.productCategory.trim().length === 0 || this.productStock == ' ',
-      this.productStock.trim().length === 0 || this.productDesc == ' ',
-      this.productDesc.trim().length === 0)
-    ) {
-    } else {
-      this.products.push(this.productName as never) || this.productName == '',
-        this.products.push(this.productCategory as never) ||
-          this.productCategory == '',
-        this.products.push(this.productStock as never) ||
-          this.productStock == '',
-        this.products.push(this.productDesc as never) || this.productDesc == ''
-    }
-    this.pName.push(this.products[0])
-    this.pCategory.push(this.products[1])
-    this.pStock.push(this.products[2])
-    this.pDesc.push(this.products[3])
+  editRecordId = null;
+  formData = Array()
+  title = 'Forms';
+  @ViewChild('f')
+  Forms!: NgForm;
+  product = {
+    id: "",
+    name: "",
+    category: "",
+    desc: "",
+    price: "",
   }
-  // productList: any
 
-  // public productMap() {
-  //   this.productList = this.products.map((item) => {
-  //     return { ProductName: item }
-  //   })
-  // }
+  form = ['one', 'two', 'three'];
+  selected = 'two'
+  submitted = false;
 
-  /* Silinmesi gereken ürün için */
-  public deleteProducts() {
-    this.pName.splice(
-      this.productName ||
-        this.productCategory ||
-        this.productStock ||
-        this.productDesc,
-      1
-    )
-    this.pCategory.splice(
-      this.productName ||
-        this.productCategory ||
-        this.productStock ||
-        this.productDesc,
-      1
-    )
-    this.pStock.splice(
-      this.productName ||
-        this.productCategory ||
-        this.productStock ||
-        this.productDesc,
-      1
-    )
-    this.pDesc.splice(
-      this.productName ||
-        this.productCategory ||
-        this.productStock ||
-        this.productDesc,
-      1
-    )
+onEdit(product: { [x: string]: any; id: any; }) {
+  
+  const {id, ...data} = product
+  this.editRecordId = id;
+
+  this.Forms.setValue(data)
+
+}
+
+onDelete(product: { id: any; }) {
+    this.formData = this.formData.filter((data) => data['id'] !== product.id)
+}
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.editRecordId) {
+      this.formData = this.formData.map((data) => data['name'] === this.editRecordId ? this.Forms.value : data)
+      this.editRecordId = null;
+    } else {
+     const id = Date.now(); 
+
+     const data = {
+       id,
+       ...this.Forms.value
+     }
+     this.formData.push(data)
+    }
+
+  this.Forms.reset();
   }
 }
+

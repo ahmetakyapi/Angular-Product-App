@@ -7,7 +7,8 @@ import { LoginComponent } from './login/login.component'
 import { BasketComponent } from './basket/basket.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { AddProductComponent } from './add-product/add-product.component'
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms'
     LoginComponent,
     BasketComponent,
     NavbarComponent,
-    AddProductComponent
+    AddProductComponent,
+    CartComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

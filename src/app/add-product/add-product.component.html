@@ -1,100 +1,67 @@
-<body>
-  <div class="add-product-container">
-    <form action="add-product">
-      <div class="add-product-title">
-        <h3>Ürün Ekleme Sayfası</h3>
+<div class="add-product-container">
+    <div class="add-product-title">
+        <h2>Ürün Ekleme Sayfası</h2>
+    </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+      <div ngModelGroup = "productData"></div>
+      <div class="form-group">
+        <label>Adı </label>
+        <input type="text" required name="name" class="form-control" ngModel />
       </div>
-
-      <label for="p-name">Ürün Adı</label>
-      <input
-        [(ngModel)]="productName"
-        value=""
+      <div class="form-group">
+        <label>Kategori </label>
+        <input type="text" required name="category" class="form-control" ngModel />
+      </div>
+      <div class="form-group">
+        <label>Fiyatı </label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          name="price"
+          ngModel
+        />
+      </div>    
+      <div class="form-group">
+        <label>Açıklama</label>
+        <input
         type="text"
-        id="pname"
-        name="product-name"
-        placeholder="Ürün Adını Giriniz..."
-      />
-      <label for="p-category">Ürün Kategorisi</label>
-      <select
-        id="p-category"
-        name="product-category"
-        [(ngModel)]="productCategory"
-        value=""
-      >
-        <option>Elektronik</option>
-        <option>Kıyafet</option>
-        <option>Telefon</option>
-        <option>Ayakkabı</option>
-        <option>Bilgisayar</option>
-        <option>Yemek</option>
-      </select>
-
-      <label for="p-stock">Ürün Adet Sayısı</label>
-      <select
-        id="pstock"
-        name="product-stok"
-        [(ngModel)]="productStock"
-        value=""
-      >
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-
-      <label for="p-details">Ürün Detayı</label>
-      <textarea
-        id="details"
-        name="product-details"
-        placeholder="Ürün detayı giriniz..."
-        style="height: 80px"
-        [(ngModel)]="productDesc"
-        value=""
-      ></textarea>
-
-      <div class="submit-button">
-        <input type="submit" value="Kaydet" (click)="addProducts()" />
+          name="desc"
+          required
+          class="form-control"
+          ngModel
+        />
       </div>
-
-      <h2>Ürün Listesi</h2>
-      <table>
-        <tr>
-          <th>Ürün Adı</th>
-          <th>Ürün Kategorisi</th>
-          <th>Ürün Stok</th>
-          <th>Ürün Açıklaması</th>
-        </tr>
-
-        <tr *ngFor="let length of testProduct">
-          <td *ngFor="let productName of pName">
-            {{ productName }}
-          </td>
-          <td *ngFor="let productCategory of pCategory">
-            {{ productCategory }}
-          </td>
-          <td *ngFor="let productStock of pStock">{{ productStock }}</td>
-          <td *ngFor="let productDesc of pDesc">{{ productDesc }}</td>
-          <td *ngFor="let deleteButton of pDesc">
-            <input
-              (click)="deleteProducts()"
-              type="button"
-              value="Sil"
-              [hidden]="
-                productName == null ||
-                productCategory == null ||
-                productStock == null ||
-                productDesc == null
-              "
-            />
-          </td>
-        </tr>
-      </table>
+      <button class="submit-button" type="submit"
+    [disabled]="!f.valid">Kaydet</button>
     </form>
+    <hr>
+    <div *ngIf ="submitted">
+        <div class="add-product-title">
+            <h2>Ürün Listesi</h2>
+        </div>
+      <table>
+        <thead>
+        <tr>
+        <th class="tableHead">Adı</th>
+        <th class="tableHead">Kategorisi</th>
+        <th class="tableHead">Fiyatı</th>
+        <th class="tableHead">Açıklaması</th>
+        <th class="tableHead">Düzenle</th>
+        <th class="tableHead">Sil</th>
+        </tr>
+      </thead>
+      <tbody >
+       <tr *ngFor="let product of formData">
+        <td>{{product.name}}</td>
+        <td>{{product.category}}</td>
+        <td>₺{{product.price}}</td>
+        <td>{{product.desc}}</td>
+        <td class="edit-button"><button (click)="onEdit(product)">Düzenle</button></td>
+        <td class="delete-button"><button (click)="onDelete(product)">Sil</button></td>
+       </tr>
+      </tbody>
+      </table>
+    </div>
   </div>
-</body>
+  
