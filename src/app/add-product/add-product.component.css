@@ -89,6 +89,16 @@ body {
     font-size: 14px;
   }
   
+  .addToBasket-button button {
+    background-color: whitesmoke;
+    color: green;
+    padding: 2px 14px;
+    border: 2px solid turquoise;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
   submit-button button:hover {
     opacity: 0.6;
   }

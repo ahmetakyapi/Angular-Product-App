@@ -36,7 +36,7 @@
     [disabled]="!f.valid">Kaydet</button>
     </form>
     <hr>
-    <div *ngIf ="submitted">
+    <div>
         <div class="add-product-title">
             <h2>Ürün Listesi</h2>
         </div>
@@ -47,8 +47,7 @@
         <th class="tableHead">Kategorisi</th>
         <th class="tableHead">Fiyatı</th>
         <th class="tableHead">Açıklaması</th>
-        <th class="tableHead">Düzenle</th>
-        <th class="tableHead">Sil</th>
+        <th class="tableHead" colspan="3">İşlemler</th>
         </tr>
       </thead>
       <tbody >
@@ -59,6 +58,7 @@
         <td>{{product.desc}}</td>
         <td class="edit-button"><button (click)="onEdit(product)">Düzenle</button></td>
         <td class="delete-button"><button (click)="onDelete(product)">Sil</button></td>
+        <td class="addToBasket-button"><button (click)="addToBasket(product)">Sepete Ekle</button></td>
        </tr>
       </tbody>
       </table>

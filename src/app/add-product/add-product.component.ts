@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
 import { NgForm } from '@angular/forms';
+import { BasketService } from '../services/basket.service';
 
 @Component({
   selector: 'app-add-product',
@@ -7,7 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-  constructor() {}
+  constructor(private basketService: BasketService) {}
 
   ngOnInit(): void {}
 
@@ -24,15 +25,10 @@ export class AddProductComponent implements OnInit {
     price: "",
   }
 
-  form = ['one', 'two', 'three'];
-  selected = 'two'
-  submitted = false;
-
-onEdit(product: { [x: string]: any; id: any; }) {
+onEdit(product: { [x: string]: any; id: any; name: any }) {
   
   const {id, ...data} = product
   this.editRecordId = id;
-
   this.Forms.setValue(data)
 
 }
@@ -42,8 +38,6 @@ onDelete(product: { id: any; }) {
 }
 
   onSubmit() {
-    this.submitted = true;
-
     if (this.editRecordId) {
       this.formData = this.formData.map((data) => data['name'] === this.editRecordId ? this.Forms.value : data)
       this.editRecordId = null;
@@ -52,12 +46,15 @@ onDelete(product: { id: any; }) {
 
      const data = {
        id,
-       ...this.Forms.value
+      ...this.Forms.value
      }
      this.formData.push(data)
     }
-
+    
   this.Forms.reset();
+  }
+  public addToBasket(product: any) {
+    this.basketService.addProduct(product);
   }
 }
 
