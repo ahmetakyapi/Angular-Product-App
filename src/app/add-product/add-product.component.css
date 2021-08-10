@@ -24,7 +24,11 @@ body {
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-  }
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
   
   .add-product-title h3 {
     margin-left: 8px;
@@ -32,8 +36,29 @@ body {
     font-size: 20px;
     font-weight: 400;
   }
+
+  .form-group {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
   
   input[type='text'],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid darkblue;
+    border-radius: 12px;
+    box-sizing: border-box;
+    resize: vertical;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+  }
+
+  input[type='number'],
   select,
   textarea {
     width: 100%;
@@ -62,12 +87,13 @@ body {
     border: 2px solid green;
     border-radius: 6px;
     cursor: pointer;
-    margin-left: 265px;
+     margin-left: 41%;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
   }
+
 
   .edit-button button {
     background-color: whitesmoke;
@@ -166,15 +192,21 @@ body {
     border-collapse: collapse;
     width: 100%;
   }
+
+  label {
+    font-size: 18px;
+    font-weight: 600;
+  }
   
   td {
-    border: 1px solid #dddddd;
+    border: 1px solid darkslategray;
     text-align: left;
     padding: 8px;
     text-align: center;
   }
+  
   th {
-    border: 1px solid #dddddd;
+    border: 1px solid darkslategray;
     text-align: left;
     padding: 8px;
     text-align: center;

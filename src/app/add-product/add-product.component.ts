@@ -14,6 +14,7 @@ export class AddProductComponent implements OnInit {
 
   editRecordId = null;
   formData = Array()
+  basketData = Array()
   title = 'Forms';
   @ViewChild('f')
   Forms!: NgForm;
@@ -55,6 +56,12 @@ onDelete(product: { id: any; }) {
   }
   public addToBasket(product: any) {
     this.basketService.addProduct(product);
+    this.basketData = this.basketData.map((data) => data['name'] === this.editRecordId ? this.Forms.value : data)
+    this.basketData.push(product)
+  }
+
+  public deleteBasket (product: any) {
+    this.basketData = this.basketData.filter((data) => data['id'] !== product.id)
   }
 }
 
