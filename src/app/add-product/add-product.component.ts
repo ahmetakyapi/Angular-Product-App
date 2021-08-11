@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
-import { NgForm } from '@angular/forms';
-import { BasketService } from '../services/basket.service';
+import { NgForm } from '@angular/forms'
+import { BasketService } from '../services/basket.service'
 
 @Component({
   selector: 'app-add-product',
@@ -12,56 +12,60 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  editRecordId = null;
+  editRecordId = null
   formData = Array()
   basketData = Array()
-  title = 'Forms';
+  title = 'Forms'
   @ViewChild('f')
-  Forms!: NgForm;
+  Forms!: NgForm
   product = {
-    id: "",
-    name: "",
-    category: "",
-    desc: "",
-    price: "",
+    id: '',
+    name: '',
+    category: '',
+    desc: '',
+    price: ''
   }
 
-onEdit(product: { [x: string]: any; id: any; name: any }) {
-  
-  const {id, ...data} = product
-  this.editRecordId = id;
-  this.Forms.setValue(data)
+  onEdit(product: { [x: string]: any; id: any; name: any }) {
+    const { id, ...data } = product
+    this.editRecordId = id
+    this.Forms.setValue(data)
+  }
 
-}
-
-onDelete(product: { id: any; }) {
+  onDelete(product: { id: any }) {
     this.formData = this.formData.filter((data) => data['id'] !== product.id)
-}
+  }
 
   onSubmit() {
     if (this.editRecordId) {
-      this.formData = this.formData.map((data) => data['name'] === this.editRecordId ? this.Forms.value : data)
-      this.editRecordId = null;
+      this.formData = this.formData.map((data) =>
+        data['name'] === this.editRecordId ? this.Forms.value : data
+      )
+      this.editRecordId = null
     } else {
-     const id = Date.now(); 
+      const id = Date.now()
 
-     const data = {
-       id,
-      ...this.Forms.value
-     }
-     this.formData.push(data)
+      const data = {
+        id,
+        ...this.Forms.value
+      }
+      this.formData.push(data)
     }
-    
-  this.Forms.reset();
+
+    this.Forms.reset()
   }
   public addToBasket(product: any) {
-    this.basketService.addProduct(product);
-    this.basketData = this.basketData.map((data) => data['name'] === this.editRecordId ? this.Forms.value : data)
+    this.basketService.addProduct(product)
+    this.basketData = this.basketData.map((data) =>
+      data['name'] === this.editRecordId ? this.Forms.value : data
+    )
     this.basketData.push(product)
   }
 
-  public deleteBasket (product: any) {
-    this.basketData = this.basketData.filter((data) => data['id'] !== product.id)
+  public deleteBasket(product: any) {
+    this.basketService.deleteProduct(product)
+    this.basketData = this.basketData.filter(
+      (data) => data['id'] !== product.id
+    )
   }
 }
-

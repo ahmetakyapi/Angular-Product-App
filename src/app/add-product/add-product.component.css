@@ -1,215 +1,246 @@
-
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-  }
-  
-  .add-product-container {
-    margin-top: 10px;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .add-product-title {
-    width: 320px;
-    height: 32px;
-    line-height: 32px;
-    color: #EEEEEE;
-    background-color:#3A4750;
-    opacity: 0.8;
-    text-align: center;
-    margin-bottom: 24px;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
-  
-  .add-product-title h3 {
-    margin-left: 8px;
-    color: #f2f2f2;
-    font-size: 20px;
-    font-weight: 400;
-  }
 
-  .form-group {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  input[type='text'],
-  select,
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid darkblue;
-    border-radius: 12px;
-    box-sizing: border-box;
-    resize: vertical;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-  }
+.add-product-container {
+  margin-top: 10px;
+  width: 91%;
+  display: flex;
+}
 
-  input[type='number'],
-  select,
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid darkblue;
-    border-radius: 12px;
-    box-sizing: border-box;
-    resize: vertical;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-  }
-  
-  textarea {
-    max-height: 130px;
-    min-height: 60px;
-  }
-  
-   form button{
-    background-color: whitesmoke;
-    color: green;
-    padding: 6px 24px;
-    border: 2px solid green;
-    border-radius: 6px;
-    cursor: pointer;
-     margin-left: 41%;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-  }
+form {
+  margin-left: 160px;
+  margin-top: 40px;
+  width: 320px;
+}
 
+.add-product-title {
+  width: 320px;
+  height: 32px;
+  line-height: 32px;
+  color: #eeeeee;
+  background-color: #3a4750;
+  opacity: 0.8;
+  text-align: center;
+  margin-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
 
-  .edit-button button {
-    background-color: whitesmoke;
-    color: dodgerblue;
-    padding: 2px 12px;
-    border: 2px solid khaki;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-  }
+.add-product-title h3 {
+  margin-left: 8px;
+  color: #f2f2f2;
+  font-size: 20px;
+  font-weight: 400;
+}
 
-   .delete-button button {
-    background-color: whitesmoke;
-    color: red;
-    padding: 2px 12px;
-    border: 2px solid red;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .addToBasket-button button {
-    background-color: whitesmoke;
-    color: green;
-    padding: 2px 14px;
-    border: 2px solid turquoise;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  submit-button button:hover {
-    opacity: 0.6;
-  }
-  
-  .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-  
-  .card-list {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-  }
-  
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 1200px;
-    height: auto;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .list-product {
-    padding-left: auto;
-    padding-right: auto;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-between;
-    color: grey;
-    font-size: 20px;
-  }
-  
-  .list-product-name {
-    display: flex;
-    flex-direction: column;
-    max-width: 80px;
-  }
-  .list-product-category {
-    display: flex;
-    flex-direction: column;
-    max-width: 80px;
-  }
-  .list-product-stock {
-    display: flex;
-    flex-direction: column;
-    max-width: 80px;
-  }
-  .list-product-desc {
-    display: flex;
-    flex-direction: column;
-    max-width: 80px;
-  }
-  
-  .list-product h4 {
-    max-width: 400px;
-    justify-content: space-around;
-    margin-left: 10px;
-    margin-right: 8 0px;
-  }
-  
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
+.form-group {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  label {
-    font-size: 18px;
-    font-weight: 600;
-  }
-  
-  td {
-    border: 1px solid darkslategray;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  th {
-    border: 1px solid darkslategray;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-  }
+input[type='text'],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid darkblue;
+  box-sizing: border-box;
+  resize: vertical;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
 
-  
+input[type='number'],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid darkblue;
+  box-sizing: border-box;
+  resize: vertical;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+textarea {
+  max-height: 130px;
+  min-height: 60px;
+}
+
+form button {
+  background-color: whitesmoke;
+  color: green;
+  padding: 6px 24px;
+  border: 2px solid green;
+  cursor: pointer;
+  margin-left: 35%;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.edit-button button {
+  background-color: whitesmoke;
+  color: dodgerblue;
+  padding: 2px 12px;
+  border: 2px solid khaki;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.delete-button button {
+  background-color: whitesmoke;
+  color: red;
+  padding: 2px 12px;
+  border: 2px solid red;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.addToBasket-button button {
+  background-color: whitesmoke;
+  color: green;
+  padding: 2px 14px;
+  border: 2px solid turquoise;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+submit-button button:hover {
+  opacity: 0.6;
+}
+
+.product-basket-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding-left: 40px;
+}
+
+.basket-container {
+  padding-top: 20px;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.card-list {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 1200px;
+  height: auto;
+  margin: auto;
+  text-align: center;
+}
+
+.list-product {
+  padding-left: auto;
+  padding-right: auto;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: grey;
+  font-size: 20px;
+}
+
+.list-product-name {
+  display: flex;
+  flex-direction: column;
+  max-width: 80px;
+}
+
+.list-product-category {
+  display: flex;
+  flex-direction: column;
+  max-width: 80px;
+}
+
+.list-product-stock {
+  display: flex;
+  flex-direction: column;
+  max-width: 80px;
+}
+
+.list-product-desc {
+  display: flex;
+  flex-direction: column;
+  max-width: 80px;
+}
+
+.list-product h4 {
+  max-width: 400px;
+  justify-content: space-around;
+  margin-left: 10px;
+  margin-right: 8 0px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+td {
+  border: 1px solid darkslategray;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  border: 1px solid darkslategray;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
