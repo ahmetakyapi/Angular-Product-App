@@ -6,6 +6,5 @@ box-sizing: border-box;
 
 .site-container {
 min-height: 100vh;
-min-width: 209vh;
 background-color: rgb(224, 204, 194);
 }
