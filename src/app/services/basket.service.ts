@@ -1,18 +1,22 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core'
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketService {
+  basket = []
 
-  basket = [];
+  basketUpdated = new EventEmitter<number>()
 
-  basketUpdated = new EventEmitter<number>();
-
-  constructor() { }
+  constructor() {}
 
   addProduct(product: any) {
-    this.basket.push(product as never);
-    this.basketUpdated.emit(this.basket.length);
+    this.basket.push(product as never)
+    this.basketUpdated.emit(this.basket.length)
+  }
+
+  deleteProduct(product: any) {
+    this.basket = this.basket.filter((data) => data['id'] !== product.id)
+    this.basketUpdated.emit(this.basket.length)
   }
 }
