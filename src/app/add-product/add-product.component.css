@@ -254,3 +254,8 @@ th {
   padding: 8px;
   text-align: center;
 }
+
+.add-product-title h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 40px;
+}

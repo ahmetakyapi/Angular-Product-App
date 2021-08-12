@@ -10,13 +10,13 @@ export class BasketService {
 
   constructor() {}
 
-  addProduct(product: any) {
+  addBasket(product: any) {
     this.basket.push(product as never)
     this.basketUpdated.emit(this.basket.length)
   }
 
-  deleteProduct(product: any) {
-    this.basket = this.basket.filter((data) => data['id'] !== product.id)
+  deleteBasket(product: any) {
+    this.basket.splice(product, 1)
     this.basketUpdated.emit(this.basket.length)
   }
 }

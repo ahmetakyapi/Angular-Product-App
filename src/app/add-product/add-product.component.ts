@@ -21,6 +21,7 @@ export class AddProductComponent implements OnInit {
   formData = Array()
   basketData = Array()
   title = 'Forms'
+  totalPrice = 0
   @ViewChild('f')
   Forms!: NgForm
   product = {
@@ -60,21 +61,22 @@ export class AddProductComponent implements OnInit {
     this.Forms.reset()
   }
   public addToBasket(product: any) {
-    this.basketService.addProduct(product)
+    this.basketService.addBasket(product)
     this.basketData = this.basketData.map((data) =>
       data['name'] === this.editRecordId ? this.Forms.value : data
     )
     this.basketData.push(product)
+    this.totalPrice = this.totalPrice + product.price
   }
 
   public deleteBasket(product: any) {
-    this.basketService.deleteProduct(product)
+    this.basketService.deleteBasket(product)
 
     /* Aynı id de olan bütün ürünleri siliyor
      this.basketData = this.basketData.filter(
-      (data) => data['id'] !== product.id
-    ) */
+      (data) => data['id'] !== product.id) */
 
     this.basketData.splice(product, 1)
+    this.totalPrice = this.totalPrice - product.price
   }
 }
