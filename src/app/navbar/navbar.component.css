@@ -63,3 +63,7 @@
   transition: all 0.2s ease-in;
   text-decoration: none;
 }
+
+i {
+  margin-right: 5px;
+}
