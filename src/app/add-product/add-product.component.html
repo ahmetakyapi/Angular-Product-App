@@ -1,7 +1,11 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <div class="add-product-container">
   <form #f="ngForm" (ngSubmit)="onSubmit()">
     <div class="add-product-title">
-      <h2>Ürün Ekleme Listesi</h2>
+      <h2><i class="fa fa-plus-square"></i>Ürün Ekleme Listesi</h2>
     </div>
     <div ngModelGroup="productData"></div>
     <div class="form-group">
@@ -27,14 +31,14 @@
       <input type="text" name="desc" required class="form-control" ngModel />
     </div>
     <button class="submit-button" type="submit" [disabled]="!f.valid">
-      Kaydet
+      <i class="fa fa-save"></i> Kaydet
     </button>
   </form>
   <hr />
   <div class="product-basket-container">
     <div class="list-product-container">
       <div class="add-product-title">
-        <h2>Ürün Listesi</h2>
+        <h2><i class="fa fa-list-alt"></i>Ürün Listesi</h2>
       </div>
       <table>
         <thead>
@@ -53,13 +57,19 @@
             <td>{{ product.price }}₺</td>
             <td>{{ product.desc }}</td>
             <td class="edit-button">
-              <button (click)="onEdit(product)">Düzenle</button>
+              <button (click)="onEdit(product)">
+                <i class="fa fa-edit"></i>
+              </button>
             </td>
             <td class="delete-button">
-              <button (click)="onDelete(product)">Sil</button>
+              <button (click)="onDelete(product)">
+                <i class="fa fa-trash"></i>
+              </button>
             </td>
             <td class="addToBasket-button">
-              <button (click)="addToBasket(product)">Sepete Ekle</button>
+              <button (click)="addToBasket(product)">
+                <i class="fa fa-cart-plus"></i>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -67,7 +77,9 @@
     </div>
     <div class="basket-container" style="margin-top: 150px">
       <div class="add-product-title">
-        <h2>Sepet</h2>
+        <h2>
+          <i class="fa fa-shopping-basket"></i>Sepet [ {{ basketCount }} ]
+        </h2>
       </div>
       <table>
         <thead>
@@ -86,7 +98,9 @@
             <td>{{ basket.price }}₺</td>
             <td>{{ basket.desc }}</td>
             <td class="delete-button">
-              <button (click)="deleteBasket(basket)">Sil</button>
+              <button (click)="deleteBasket(basket)">
+                <i class="fa fa-trash"></i>
+              </button>
             </td>
           </tr>
         </tbody>

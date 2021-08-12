@@ -8,7 +8,12 @@ import { BasketService } from '../services/basket.service'
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-  constructor(private basketService: BasketService) {}
+  basketCount: number | undefined
+  constructor(private basketService: BasketService) {
+    this.basketService.basketUpdated.subscribe(
+      (count: number) => (this.basketCount = count)
+    )
+  }
 
   ngOnInit(): void {}
 
@@ -26,7 +31,7 @@ export class AddProductComponent implements OnInit {
     price: ''
   }
 
-  onEdit(product: { [x: string]: any; id: any; name: any }) {
+  onEdit(product: { [x: string]: any; id: any }) {
     const { id, ...data } = product
     this.editRecordId = id
     this.Forms.setValue(data)
@@ -64,8 +69,12 @@ export class AddProductComponent implements OnInit {
 
   public deleteBasket(product: any) {
     this.basketService.deleteProduct(product)
-    this.basketData = this.basketData.filter(
+
+    /* Aynı id de olan bütün ürünleri siliyor
+     this.basketData = this.basketData.filter(
       (data) => data['id'] !== product.id
-    )
+    ) */
+
+    this.basketData.splice(product, 1)
   }
 }
